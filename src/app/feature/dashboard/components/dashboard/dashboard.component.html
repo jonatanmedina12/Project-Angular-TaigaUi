@@ -1,0 +1,88 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+    <header class="dashboard-header">
+      <h1>Dashboard</h1>
+      <div class="dashboard-actions">
+        <button tuiButton type="button" appearance="primary">
+          New Report
+        </button>
+      </div>
+    </header>
+  
+    <tui-tabs
+      class="dashboard-tabs"
+      [(activeItemIndex)]="activeTabIndex">
+      <button
+        *ngFor="let tab of tabs"
+        tuiTab>
+        {{ tab }}
+      </button>
+    </tui-tabs>
+  
+    <div class="dashboard-content" [ngSwitch]="activeTabIndex">
+      <div *ngSwitchCase="0" class="dashboard-overview">
+        <div class="dashboard-row">
+          <app-statistics-card
+            title="Total Users"
+            [value]="1250"
+            trend="+15%"
+            trendDirection="up"
+            icon="tuiIconUsers"
+            class="dashboard-card">
+          </app-statistics-card>
+          
+          <app-statistics-card
+            title="Revenue"
+            [value]="52300"
+            valuePrefix="$"
+            trend="+8.5%"
+            trendDirection="up"
+            icon="tuiIconDollarSign"
+            class="dashboard-card">
+          </app-statistics-card>
+          
+          <app-statistics-card
+            title="Active Sessions"
+            [value]="328"
+            trend="-3.2%"
+            trendDirection="down"
+            icon="tuiIconActivity"
+            class="dashboard-card">
+          </app-statistics-card>
+          
+          <app-statistics-card
+            title="Conversion Rate"
+            [value]="5.4"
+            valueSuffix="%"
+            trend="+1.2%"
+            trendDirection="up"
+            icon="tuiIconBarChart"
+            class="dashboard-card">
+          </app-statistics-card>
+        </div>
+        
+        <div class="dashboard-row">
+          <app-chart-card 
+            title="Traffic Overview"
+            class="dashboard-card dashboard-card-large">
+          </app-chart-card>
+          
+          <app-notifications-card
+            class="dashboard-card dashboard-card-medium">
+          </app-notifications-card>
+        </div>
+        
+        <div class="dashboard-row">
+          <app-data-table
+            title="Recent Transactions"
+            class="dashboard-card dashboard-card-full">
+          </app-data-table>
+        </div>
+      </div>
+      
+      <!-- Other tab contents would go here -->
+      <div *ngSwitchCase="1">Analytics Content</div>
+      <div *ngSwitchCase="2">Reports Content</div>
+      <div *ngSwitchCase="3">Settings Content</div>
+    </div>
+  </div>

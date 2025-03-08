@@ -1,0 +1,24 @@
+<!-- statistics-card.component.html -->
+<tui-island class="statistics-card">
+    <div class="card-header">
+      <h3 class="card-title">{{ title }}</h3>
+      <div *ngIf="icon" class="card-icon">
+        <tui-svg [src]="icon"></tui-svg>
+      </div>
+    </div>
+    
+    <div class="card-content">
+      <div class="card-value">{{ formattedValue }}</div>
+      <div *ngIf="trend" class="card-trend" [ngClass]="trendClass">
+        {{ trend }}
+        <tui-svg 
+          *ngIf="trendDirection === 'up'" 
+          src="tuiIconArrowUp">
+        </tui-svg>
+        <tui-svg 
+          *ngIf="trendDirection === 'down'" 
+          src="tuiIconArrowDown">
+        </tui-svg>
+      </div>
+    </div>
+  </tui-island>
