@@ -1,0 +1,84 @@
+/* dashboard.component.scss */
+:host {
+    display: block;
+    height: 100%;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    height: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  
+  .dashboard-tabs {
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+  }
+  
+  .dashboard-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-card {
+    flex: 1 1 calc(25% - 1.5rem);
+    min-width: 240px;
+    
+    &.dashboard-card-medium {
+      flex: 1 1 calc(33.33% - 1.5rem);
+      min-width: 350px;
+    }
+    
+    &.dashboard-card-large {
+      flex: 2 1 calc(66.66% - 1.5rem);
+      min-width: 500px;
+    }
+    
+    &.dashboard-card-full {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .dashboard-card {
+      flex: 1 1 calc(50% - 1.5rem);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+    
+    .dashboard-row {
+      gap: 1rem;
+    }
+    
+    .dashboard-card,
+    .dashboard-card.dashboard-card-medium,
+    .dashboard-card.dashboard-card-large {
+      flex: 1 1 100%;
+    }
+  }
